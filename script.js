@@ -20,30 +20,50 @@ function getHumanChoice(){
 
 }
 function playRound(){
-    let computerChoice = getComputerChoice();
-    let humanChoice = getHumanChoice();
+    let computerChoice = getComputerChoice().toLowerCase();
+    let humanChoice = getHumanChoice().toLowerCase();
+    
+
     if(humanChoice == computerChoice){
-        humanScore+=0;
-        computerScore+=0;
+        console.log("TIE\nTry Again!!!")
     }
-    if(humanChoice == "Rock" && computerChoice == "Scissors"){
-        humanScore+=1;
+    if(humanChoice == "rock" && computerChoice == "scissors"){
+        humanScore++;
     }
-    else if(computerChoice == "Rock" && humanChoice == "Scissors"){
-        computerScore+=1;
+    else if(computerChoice == "rock" && humanChoice == "scissors"){
+        computerScore++;
     }
-    if(humanChoice == "Paper" && computerChoice == "Rock"){
-        humanScore+=1;
+    if(humanChoice == "paper" && computerChoice == "rock"){
+        humanScore++;
     }
-    else if(computerChoice == "Paper" && humanChoice == "Rock"){
-        computerScore+=1;
+    else if(computerChoice == "paper" && humanChoice == "rock"){
+        computerScore++;
     }
-    if(humanChoice == "Scissors" && computerChoice == "Paper"){
-        humanScore+=1;
+    if(humanChoice == "scissors" && computerChoice == "paper"){
+        humanScore++;
     }
-    else if(computerChoice == "Scissors" && humanChoice == "Paper"){
-        computerScore+=1;
+    else if(computerChoice == "scissors" && humanChoice == "paper"){
+        computerScore++;
     }
 }
+function playGame(){
+    let roundNum = 0;
+while(roundNum < 5){
 playRound();
 console.log("Current Scores:\n"+"Human Score:"+ humanScore+"\nComputer Score:"+computerScore);
+roundNum++;
+}
+if(humanScore==computerScore){
+    console.log("No Winner");
+}
+if(humanScore>computerScore){
+    console.log("Congratulation you beat the Computer!!");
+}
+else{
+    console.log("You lose!!!");
+
+}
+
+}
+playGame();
+
